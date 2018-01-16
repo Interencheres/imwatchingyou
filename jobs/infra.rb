@@ -29,12 +29,12 @@ github = GithubInfo.new
 # Init count down
 config = ConfigApp.new
 # We assume countdown hash in config is present
-if config.params['countdown'].include? 'ws'
-  if config.params['countdown']['ws']['enable']
+if config.params['countdown'].include? 'dt'
+  if config.params['countdown']['dt']['enable']
     send_event(
       'countdownws',
-      title: 'WS is ours in',
-      end: config.params['countdown']['ws']['date']
+      title: config.params['countdown']['dt']['title'],
+      end: config.params['countdown']['dt']['date']
     )
   else
     send_event(
